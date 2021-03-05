@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+
+    std::string plus = "+";
+
+    std::string minus = "-";
+
+    bool mino = false;
+
+    bool pluo = false;
+
+    int tracker = 1;
+
+    std::string s = "";
+
+    int number = 0;
+
+    std::cin >> s;
+
+    int lengthy = s.length();
+
+    std::string Stuff[10] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+    int Numies[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+    for (int i = (lengthy - 1); i > 0; i--)
+    {
+        for (int q = 0; q < 10; q++)
+        {
+            if (s.at(i) == Stuff[q].at(0))
+            {
+                number = number + (Numies[q] * tracker);
+
+
+                tracker = tracker * 10;
+            }
+        }
+
+        if (s.at(i) == plus.at(0))
+        {
+            pluo = true;
+        }
+        else if (s.at(i) == minus.at(0))
+        {
+            mino = true;
+        }
+    }
+
+    if (pluo == true)
+    {
+        number = number * 1;
+    }
+    else if (mino == true)
+    {
+        number = number * -1;
+    }
+
+    if (number > 2147483647)
+    {
+        number = 2147483647;
+    }
+    else if (number < -2147483648)
+    {
+        number = -2147483648;
+    }
+
+    std::cout << number <<std::endl;
+}
